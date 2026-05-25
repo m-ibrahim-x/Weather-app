@@ -2,7 +2,7 @@ import Humidity from "../../../assets/icons/Humidity.png";
 import WindSpeed from "../../../assets/icons/WindSpeed.png";
 import Pressure from "../../../assets/icons/Pressure.png";
 import Visibility from "../../../assets/icons/Visibility.png";
-import UV from "../../../assets/icons/UV.png";
+import UV from "../../../assets/icons/Uv.png";
 import AirQuality from "../../../assets/icons/AirQuality.png";
 
 const CurrentWeather = () => {
