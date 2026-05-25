@@ -7,398 +7,156 @@ import AirQuality from "../../../assets/icons/AirQuality.png";
 
 const CurrentWeather = () => {
     return (
-        <section
-        className="
-            mt-10
+        <section className=" px-4 sm:px-6 md:px-8 lg:px-10 py-4">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+                {/* First Box */}
+                <div className="flex rounded-lg border border-white/10 bg-black/20 backdrop-blur-md md:block">
+                    {/* First Card */}
+                    <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center md:flex-row md:text-left">
+                        <img
+                            src={Humidity}
+                            alt="Humidity"
+                            className="h-7 w-7 object-contain"
+                        />
+                        <div>
+                            <h3 className="text-xs font-medium text-white/60">
+                                Humidity
+                            </h3>
+                            <p className="mt-1 text-lg font-bold text-white">
+                                65%
+                            </p>
+                        </div>
+                    </div>
 
-            rounded-[36px]
+                    {/* Divider */}
+                    <div className="w-[1px] bg-white/10 md:hidden"></div>
 
-            border
-            border-white/5
+                    {/* Second Card */}
+                    <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center md:hidden">
+                        <img
+                            src={WindSpeed}
+                            alt="Wind Speed"
+                            className="h-7 w-7 object-contain"
+                        />
+                        <div>
+                            <h3 className="text-xs font-medium text-white/60">
+                                Wind Speed
+                            </h3>
+                            <p className="mt-1 text-lg font-bold text-white">
+                                18 km/h
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-            bg-black/5
+                {/* Wind Card For md+ */}
+                <div className="hidden rounded-lg border border-white/10 bg-black/20 p-4 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-3">
+                    <img
+                        src={WindSpeed}
+                        alt="Wind Speed"
+                        className="h-7 w-7 object-contain"
+                    />
+                    <div>
+                        <h3 className="text-xs font-medium text-white/60">
+                            Wind Speed
+                        </h3>
+                        <p className="mt-1 text-lg font-bold text-white">
+                            18 km/h
+                        </p>
+                    </div>
+                </div>
 
-            p-4
+                {/* Second Box */}
+                <div className="flex rounded-lg border border-white/10 bg-black/20 backdrop-blur-md md:block">
+                    {/* Third Card */}
+                    <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center md:flex-row md:text-left">
+                        <img
+                            src={Pressure}
+                            alt="Pressure"
+                            className="h-7 w-7 object-contain"
+                        />
+                        <div>
+                            <h3 className="text-xs font-medium text-white/60">
+                                Pressure
+                            </h3>
+                            <p className="mt-1 text-lg font-bold text-white">
+                                1012 hPa
+                            </p>
+                        </div>
+                    </div>
 
-            backdrop-blur-sm
+                    {/* Divider */}
+                    <div className="w-[1px] bg-white/10 md:hidden"></div>
 
-            sm:p-5
+                    {/* Fourth Card */}
+                    <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center md:hidden">
+                        <img
+                            src={Visibility}
+                            alt="Visibility"
+                            className="h-7 w-7 object-contain"
+                        />
+                        <div>
+                            <h3 className="text-xs font-medium text-white/60">
+                                Visibility
+                            </h3>
+                            <p className="mt-1 text-lg font-bold text-white">
+                                10 km
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-            lg:p-6
-        "
-        >
-        {/* GRID */}
-        <div
-            className="
-            grid
-            grid-cols-2
-            gap-4
+                {/* Visibility Card For md+ */}
+                <div className="hidden rounded-lg border border-white/10 bg-black/20 p-4 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-3">
+                    <img
+                        src={Visibility}
+                        alt="Visibility"
+                        className="h-7 w-7 object-contain"
+                    />
+                    <div>
+                        <h3 className="text-xs font-medium text-white/60">
+                            Visibility
+                        </h3>
+                        <p className="mt-1 text-lg font-bold text-white">
+                            10 km
+                        </p>
+                    </div>
+                </div>
 
-            md:grid-cols-3
+                {/* Fifth Card */}
+                <div className="hidden rounded-lg border border-white/10 bg-black/20 p-4 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-3">
+                    <img
+                        src={UV}
+                        alt="UV Index"
+                        className="h-7 w-7 object-contain"
+                    />
+                    <div>
+                        <h3 className="text-xs font-medium text-white/60">
+                            UV Index
+                        </h3>
+                        <p className="mt-1 text-lg font-bold text-white">
+                            Moderate
+                        </p>
+                    </div>
+                </div>
 
-            xl:grid-cols-6
-            "
-        >
-            {/* CARD 1 */}
-            <div
-            className="
-                flex
-                items-center
-                gap-4
-
-                rounded-[28px]
-
-                border
-                border-white/10
-
-                bg-black/25
-
-                p-5
-
-                backdrop-blur-sm
-
-                transition
-
-                hover:bg-black/35
-            "
-            >
-            <img
-                src={Humidity}
-                alt="Humidity"
-                className="
-                h-11
-                w-11
-                shrink-0
-                object-contain
-                "
-            />
-
-            <div>
-                <h3
-                className="
-                    text-sm
-                    font-medium
-                    text-white/70
-                "
-                >
-                Humidity
-                </h3>
-
-                <p
-                className="
-                    mt-1
-
-                    text-2xl
-                    font-bold
-                    text-white
-                "
-                >
-                65%
-                </p>
+                {/* Sixth Card */}
+                <div className="hidden rounded-lg border border-white/10 bg-black/20 p-4 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-3">
+                    <img
+                        src={AirQuality}
+                        alt="Air Quality"
+                        className="h-7 w-7 object-contain"
+                    />
+                    <div>
+                        <h3 className="text-xs font-medium text-white/60">
+                            Air Quality
+                        </h3>
+                        <p className="mt-1 text-lg font-bold text-white">
+                            Good
+                        </p>
+                    </div>
+                </div>
             </div>
-            </div>
-
-            {/* CARD 2 */}
-            <div
-            className="
-                flex
-                items-center
-                gap-4
-
-                rounded-[28px]
-
-                border
-                border-white/10
-
-                bg-black/25
-
-                p-5
-
-                backdrop-blur-sm
-
-                transition
-
-                hover:bg-black/35
-            "
-            >
-            <img
-                src={WindSpeed}
-                alt="Wind Speed"
-                className="
-                h-11
-                w-11
-                shrink-0
-                object-contain
-                "
-            />
-
-            <div>
-                <h3
-                className="
-                    text-sm
-                    font-medium
-                    text-white/70
-                "
-                >
-                Wind Speed
-                </h3>
-
-                <p
-                className="
-                    mt-1
-
-                    text-2xl
-                    font-bold
-                    text-white
-                "
-                >
-                18 km/h
-                </p>
-            </div>
-            </div>
-
-            {/* CARD 3 */}
-            <div
-            className="
-                flex
-                items-center
-                gap-4
-
-                rounded-[28px]
-
-                border
-                border-white/10
-
-                bg-black/25
-
-                p-5
-
-                backdrop-blur-sm
-
-                transition
-
-                hover:bg-black/35
-            "
-            >
-            <img
-                src={Pressure}
-                alt="Pressure"
-                className="
-                h-11
-                w-11
-                shrink-0
-                object-contain
-                "
-            />
-
-            <div>
-                <h3
-                className="
-                    text-sm
-                    font-medium
-                    text-white/70
-                "
-                >
-                Pressure
-                </h3>
-
-                <p
-                className="
-                    mt-1
-
-                    text-2xl
-                    font-bold
-                    text-white
-                "
-                >
-                1012 hPa
-                </p>
-            </div>
-            </div>
-
-            {/* CARD 4 */}
-            <div
-            className="
-                flex
-                items-center
-                gap-4
-
-                rounded-[28px]
-
-                border
-                border-white/10
-
-                bg-black/25
-
-                p-5
-
-                backdrop-blur-sm
-
-                transition
-
-                hover:bg-black/35
-            "
-            >
-            <img
-                src={Visibility}
-                alt="Visibility"
-                className="
-                h-11
-                w-11
-                shrink-0
-                object-contain
-                "
-            />
-
-            <div>
-                <h3
-                className="
-                    text-sm
-                    font-medium
-                    text-white/70
-                "
-                >
-                Visibility
-                </h3>
-
-                <p
-                className="
-                    mt-1
-
-                    text-2xl
-                    font-bold
-                    text-white
-                "
-                >
-                10 km
-                </p>
-            </div>
-            </div>
-
-            {/* CARD 5 */}
-            <div
-            className="
-                hidden
-
-                items-center
-                gap-4
-
-                rounded-[28px]
-
-                border
-                border-white/10
-
-                bg-black/25
-
-                p-5
-
-                backdrop-blur-sm
-
-                transition
-
-                hover:bg-black/35
-
-                md:flex
-            "
-            >
-            <img
-                src={UV}
-                alt="UV Index"
-                className="
-                h-11
-                w-11
-                shrink-0
-                object-contain
-                "
-            />
-
-            <div>
-                <h3
-                className="
-                    text-sm
-                    font-medium
-                    text-white/70
-                "
-                >
-                UV Index
-                </h3>
-
-                <p
-                className="
-                    mt-1
-
-                    text-2xl
-                    font-bold
-                    text-white
-                "
-                >
-                Moderate
-                </p>
-            </div>
-            </div>
-
-            {/* CARD 6 */}
-            <div
-            className="
-                hidden
-
-                items-center
-                gap-4
-
-                rounded-[28px]
-
-                border
-                border-white/10
-
-                bg-black/25
-
-                p-5
-
-                backdrop-blur-sm
-
-                transition
-
-                hover:bg-black/35
-
-                md:flex
-            "
-            >
-            <img
-                src={AirQuality}
-                alt="Air Quality"
-                className="
-                h-11
-                w-11
-                shrink-0
-                object-contain
-                "
-            />
-
-            <div>
-                <h3
-                className="
-                    text-sm
-                    font-medium
-                    text-white/70
-                "
-                >
-                Air Quality
-                </h3>
-
-                <p
-                className="
-                    mt-1
-
-                    text-2xl
-                    font-bold
-                    text-white
-                "
-                >
-                Good
-                </p>
-            </div>
-            </div>
-        </div>
         </section>
     );
 };

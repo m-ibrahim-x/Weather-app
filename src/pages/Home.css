@@ -1,11 +1,11 @@
-.header {
+.Home {
     background: url('../assets/backgrounds/hero.png') no-repeat center center fixed;
     background-size: cover;
     position: relative;
     min-height: 100vh;
 }
 
-.header::before {
+.Home::before {
     content: "";
     position: absolute;
     inset: 0;
