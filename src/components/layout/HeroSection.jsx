@@ -9,7 +9,7 @@ import Fog from "../../assets/icons/statusweather/Fog.png";
 import Rain from "../../assets/icons/statusweather/Rain.png";
 import Snow from "../../assets/icons/statusweather/Snow.png";
 import Sunny from "../../assets/icons/statusweather/Sunny.png";
-import ThunderStorm from "../../assets/icons/statusweather/ThunderStorm.png";
+import Thunder from "../../assets/icons/statusweather/Thunder.png";
 
 function HeroSection({ weatherData, setCity }) {
     // WeatherIcons Daynamic
@@ -19,7 +19,7 @@ function HeroSection({ weatherData, setCity }) {
         Clouds: Cloudy,
         Mist: Fog,
         Rain: Rain,
-        Thunderstorm: ThunderStorm,
+        Thunderstorm: Thunder,
     };
 
     const currentWeather = weatherData?.weather?.[0]?.main;
