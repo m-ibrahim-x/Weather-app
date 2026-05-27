@@ -19,7 +19,7 @@ function HeroSection({ weatherData, setCity }) {
         Clouds: Cloudy,
         Mist: Fog,
         Rain: Rain,
-        Thundertorm: ThunderStorm,
+        Thunderstorm: ThunderStorm,
     };
 
     const currentWeather = weatherData?.weather?.[0]?.main;
