@@ -5,13 +5,16 @@ import Footer from '../components/layout/Footer';
 import './Home.css';
 
 // API 
-import { useEffect , useState } from "react";
 import WeatherApi from "../services/WeatherApi";
+
+import { useEffect , useState } from "react";
 
 // StorageData
 
 function Home() {
-const [weatherData, setWeatherData] = useState(null);
+const [weatherData , setWeatherData] = useState(null);
+
+const [hourlyData , setHourlyData] = useState(null);
 
 // Current City
 const [city , setCity] = useState(
@@ -33,12 +36,26 @@ const [city , setCity] = useState(
 
   }, [city]);
 
+  useEffect(() => {
+
+      const fetchHourlyForecast = async () => {
+
+          const data = await WeatherApi.getHourlyForecast(city);
+
+          setHourlyData(data);
+
+      };
+
+      fetchHourlyForecast();
+
+  }, [city]);
+
   return (
     <>  
       <div className="Home">
           <Navbar />
           <HeroSection weatherData={weatherData} setCity={setCity} />
-          <WeatherLayout weatherData={weatherData} />
+          <WeatherLayout weatherData={weatherData} hourlyData={hourlyData} />
           <Footer />
       </div>
     </>

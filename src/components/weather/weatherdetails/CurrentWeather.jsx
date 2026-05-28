@@ -5,7 +5,7 @@ import Visibility from "../../../assets/icons/Visibility.png";
 import UV from "../../../assets/icons/Uv.png";
 import AirQuality from "../../../assets/icons/AirQuality.png";
 
-const CurrentWeather = () => {
+const CurrentWeather = ({ weatherData }) => {
     return (
         <section className=" px-4 sm:px-6 md:px-8 lg:px-10 py-4">
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
@@ -23,7 +23,7 @@ const CurrentWeather = () => {
                                 Humidity
                             </h3>
                             <p className="mt-1 text-lg font-bold text-white">
-                                65%
+                                {weatherData?.main?.humidity ? `${weatherData.main.humidity}%` : "60%"}
                             </p>
                         </div>
                     </div>
@@ -43,7 +43,7 @@ const CurrentWeather = () => {
                                 Wind Speed
                             </h3>
                             <p className="mt-1 text-lg font-bold text-white">
-                                18 km/h
+                                {weatherData?.wind?.speed ? `${weatherData.wind.speed} km/h` : "18 km/h"}
                             </p>
                         </div>
                     </div>
@@ -61,7 +61,11 @@ const CurrentWeather = () => {
                             Wind Speed
                         </h3>
                         <p className="mt-1 text-lg font-bold text-white">
-                            18 km/h
+                            {
+                                weatherData?.wind?.speed
+                                ? `${Math.round(weatherData.wind.speed * 3.6)} km/h`
+                                : "18 km/h"
+                            }
                         </p>
                     </div>
                 </div>
@@ -80,7 +84,7 @@ const CurrentWeather = () => {
                                 Pressure
                             </h3>
                             <p className="mt-1 text-lg font-bold text-white">
-                                1012 hPa
+                                {weatherData?.main?.pressure ? `${weatherData.main.pressure} hPa` : "1012 hPa"}
                             </p>
                         </div>
                     </div>
@@ -100,7 +104,11 @@ const CurrentWeather = () => {
                                 Visibility
                             </h3>
                             <p className="mt-1 text-lg font-bold text-white">
-                                10 km
+                                {
+                                    weatherData?.visibility
+                                    ? `${Math.round(weatherData.visibility / 1000)} km`
+                                    : "10 km"
+                                }
                             </p>
                         </div>
                     </div>
@@ -118,7 +126,7 @@ const CurrentWeather = () => {
                             Visibility
                         </h3>
                         <p className="mt-1 text-lg font-bold text-white">
-                            10 km
+                            {weatherData?.visibility ? `${weatherData.visibility / 1000} km` : "10 km"}
                         </p>
                     </div>
                 </div>

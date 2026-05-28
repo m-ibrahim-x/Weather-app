@@ -93,7 +93,7 @@ function HeroSection({ weatherData, setCity }) {
                 </p>
                 {/* CITY */}
                 <h3 className="mt-3 text-left font-semibold text-white text-[clamp(1.5rem,4vw,2.3rem)] lg:text-right">
-                    {weatherData?.name || "Cairo"} ,{" "}
+                    {weatherData?.name || "Cairo"} ,
                     {weatherData?.sys?.country || "Egypt"}
                 </h3>
                 {/* TEMP */}
