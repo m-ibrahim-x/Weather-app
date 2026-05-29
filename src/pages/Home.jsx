@@ -16,50 +16,69 @@ const [weatherData , setWeatherData] = useState(null);
 
 const [hourlyData , setHourlyData] = useState(null);
 
+const [weeklyData , setWeeklyData] = useState(null);
+
 // Current City
 const [city , setCity] = useState(
     localStorage.getItem("city") || "Cairo"
 );
 
-  useEffect(() => {
+    useEffect(() => {
 
-      const fetchWeather = async () => {
+        const fetchWeather = async () => {
 
-          const data = await WeatherApi.getCurrentWeather(city);
+            const data = await WeatherApi.getCurrentWeather(city);
 
-          setWeatherData(data);
-          // console.log(weatherData);
+            setWeatherData(data);
+            // console.log(weatherData);
 
-      };
+        };
 
-      fetchWeather();
+        fetchWeather();
 
-  }, [city]);
+    }, [city]);
 
-  useEffect(() => {
+    useEffect(() => {
 
-      const fetchHourlyForecast = async () => {
+        const fetchHourlyForecast = async () => {
 
-          const data = await WeatherApi.getHourlyForecast(city);
+            const data = await WeatherApi.getHourlyForecast(city);
 
-          setHourlyData(data);
+            setHourlyData(data);
 
-      };
+        };
 
-      fetchHourlyForecast();
+        fetchHourlyForecast();
 
-  }, [city]);
+    }, [city]);
 
-  return (
-    <>  
-      <div className="Home">
-          <Navbar />
-          <HeroSection weatherData={weatherData} setCity={setCity} />
-          <WeatherLayout weatherData={weatherData} hourlyData={hourlyData} />
-          <Footer />
-      </div>
-    </>
-  );
-}
+    useEffect(() => {
+
+        const fetchWeeklyForecast = async () => {
+
+            if (weatherData) {
+                // console.log(weatherData);
+                const { lat, lon } = weatherData.coord;
+                const data = await WeatherApi.getWeeklyForecast(lat, lon);
+                setWeeklyData(data);
+            }
+
+        };
+
+        fetchWeeklyForecast();
+
+    }, [weatherData]);
+
+    return (
+        <>  
+        <div className="Home">
+            <Navbar />
+            <HeroSection weatherData={weatherData} setCity={setCity} />
+            <WeatherLayout weatherData={weatherData} hourlyData={hourlyData} weeklyData={weeklyData} />
+            <Footer />
+        </div>
+        </>
+    );
+    }
 
 export default Home;

@@ -45,6 +45,27 @@ const WeatherApi = {
         }
 
     },
+    
+    getWeeklyForecast: async (lat, lon) => {
+
+        try {
+
+            const response = await axios.get(
+                `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto`
+            );
+
+            return response.data;
+
+        } catch (error) {
+
+            console.error(
+                "Error fetching weekly forecast:",
+                error
+            );
+
+        }
+
+    },
 
 };
 
