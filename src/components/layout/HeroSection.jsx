@@ -26,7 +26,7 @@ function HeroSection({ weatherData, setCity }) {
 
     const currentWeatherIcon = WeatherIcons[currentWeather];
 
-    console.log(currentWeather);
+    // console.log(currentWeather);
     // City Input
     const [valueInput, setValueInput] = useState("");
 
@@ -61,7 +61,7 @@ function HeroSection({ weatherData, setCity }) {
                 <div className="mx-auto mt-10 flex h-[60px] w-full max-w-[580px] items-center justify-between rounded-full border border-white/10 bg-black/20 pl-5 pr-2 backdrop-blur-md lg:mx-0">
                 {/* LEFT */}
                 <div className="flex flex-1 items-center gap-3">
-                    <HiOutlineSearch className="text-white/60" size={20} />
+                    <HiOutlineSearch className="text-white/60" size={20} onClick={handleSearch} />
                     <input
                     type="text"
                     placeholder="Search city..."

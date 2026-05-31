@@ -52,10 +52,10 @@ const WeeklyForecast = ({ weeklyData }) => {
 
                             <div
                                 key={date}
-                                className="min-w-[100px] flex flex-col justify-center atems-center rounded-md bg-black/40 p-4  lg:grow"
+                                className="min-w-[100px] flex flex-col justify-center items-center rounded-md bg-black/40 p-4  lg:grow"
                             >
 
-                                <div className="flex gap-2 md:flex-col">
+                                <div className="flex gap-2 ">
 
                                     <p className="text-sm font-medium text-white">
                                         {
