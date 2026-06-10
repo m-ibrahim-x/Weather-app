@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+export const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 const WeatherApi = {
 
@@ -15,12 +15,7 @@ const WeatherApi = {
             return response.data;
 
         } catch (error) {
-
-            console.error(
-                "Error fetching current weather:",
-                error
-            );
-
+            throw error ;
         }
 
     },
@@ -36,12 +31,7 @@ const WeatherApi = {
             return response.data;
 
         } catch (error) {
-
-            console.error(
-                "Error fetching hourly forecast:",
-                error
-            );
-
+            throw error;
         }
 
     },
@@ -57,12 +47,7 @@ const WeatherApi = {
             return response.data;
 
         } catch (error) {
-
-            console.error(
-                "Error fetching weekly forecast:",
-                error
-            );
-
+            throw error;
         }
 
     },
