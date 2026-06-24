@@ -7,7 +7,9 @@ function ChangeView({ center }) {
     const map = useMap();
 
     useEffect(() => {
-        map.setView(center, 7);
+        map.flyTo(center, 8, {
+            duration: 1.5,
+        });
     }, [center, map]);
 
     return null;

@@ -6,8 +6,6 @@ import Sunny from "../../../assets/icons/statusweather/Sunny.png";
 import Thunder from "../../../assets/icons/statusweather/Thunder.png";
 
 const WeeklyForecast = ({ weeklyData }) => {
-    // console.log(weeklyData.daily);
-
     const weatherCodeMap = {
         0: Sunny,
 
@@ -35,77 +33,58 @@ const WeeklyForecast = ({ weeklyData }) => {
         96: Thunder,
         99: Thunder,
     };
+
     return (
         <section className="mt-6 rounded-md bg-transparent p-0 md:border md:border-white/10 md:bg-black/10 md:p-5 md:backdrop-blur-md">
-            {/* Section Header */}
-            <div className="mb-5">
-                <h2 className="text-lg font-semibold text-white">
-                    7-Day Forecast
-                </h2>
-            </div>
+        {/* Section Header */}
+        <div className="mb-5">
+            <h2 className="text-lg font-semibold text-white">
+            7-Day Forecast
+            </h2>
+        </div>
 
-            {/* Forecast Cards */}
-            <div className="overflow-x-auto scrollbar-hide">
-                <div className="flex gap-3 lg:w-full">
-                    {
-                        weeklyData?.daily?.time?.map((date, index) => (
+        {/* Forecast Cards */}
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
+            {weeklyData?.daily?.time?.map((date, index) => (
+            <div
+                key={date}
+                className="flex flex-col items-center justify-center rounded-md bg-black/40 p-4"
+            >
+                <div className="flex items-center gap-2">
+                <p className="text-sm font-medium text-white">
+                    {new Date(date).toLocaleDateString("en-US", {
+                    weekday: "short",
+                    })}
+                </p>
 
-                            <div
-                                key={date}
-                                className="min-w-[100px] flex flex-col justify-center items-center rounded-md bg-black/40 p-4  lg:grow"
-                            >
+                <span className="mt-1 block text-xs text-white/50">
+                    {new Date(date).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    })}
+                </span>
+                </div>
 
-                                <div className="flex gap-2 ">
+                <img
+                src={weatherCodeMap[weeklyData.daily.weather_code[index]] || Sunny}
+                alt={`Weather Icon for ${date}`}
+                className="my-2 h-8 w-8 object-contain md:my-3 md:h-9 md:w-9"
+                />
 
-                                    <p className="text-sm font-medium text-white">
-                                        {
-                                            new Date(date).toLocaleDateString("en-US", {
-                                                weekday: "short",
-                                            })
-                                        }
-                                    </p>
+                <div className="flex items-center gap-2">
+                <h3 className="text-lg font-bold text-white md:text-xl">
+                    {Math.round(weeklyData.daily.temperature_2m_max[index])}°
+                </h3>
 
-                                    <span className="mt-1 block text-xs text-white/50">
-                                        {
-                                            new Date(date).toLocaleDateString("en-US", {
-                                                month: "short",
-                                                day: "numeric",
-                                            })
-                                        }
-                                    </span>
-
-                                </div>
-
-                                <img
-                                    src={
-                                        weatherCodeMap[weeklyData.daily.weather_code[index]]
-                                        || Sunny
-                                    }
-                                    alt={`Weather Icon for ${date}`}
-                                    className="h-8 w-8 md:my-3 md:h-9 md:w-9"
-                                />
-
-                                <div className="flex items-center gap-2">
-
-                                    <h3 className="text-lg font-bold text-white md:text-xl">
-                                        {Math.round(weeklyData.daily.temperature_2m_max[index])}°
-                                    </h3>
-
-                                    <span className="text-sm text-white/50">
-                                        {Math.round(weeklyData.daily.temperature_2m_min[index])}°
-                                    </span>
-
-                                </div>
-
-                            </div>
-                        
-
-                        ))
-                    }
+                <span className="text-sm text-white/50">
+                    {Math.round(weeklyData.daily.temperature_2m_min[index])}°
+                </span>
                 </div>
             </div>
+            ))}
+        </div>
         </section>
-    )
-}
+    );
+};
 
-export default WeeklyForecast
+export default WeeklyForecast;

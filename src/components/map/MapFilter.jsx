@@ -10,7 +10,7 @@ import LayerButton from "./LayerButton";
 
 const MapFilter = ({ layer , setLayer }) => {
     return (
-        <div className="absolute top-5 right-5 z-[1000] flex flex-col gap-3">
+        <div className="absolute top-5 left-1/2 z-[1000] flex -translate-x-1/2 items-center gap-3 rounded-full border border-white/10 bg-black/30 p-3 backdrop-blur-xl">
             <LayerButton icon={<FaGlobe />} onClick={() => setLayer("globe")} isActive={layer === "globe"} />
             <LayerButton icon={<FaCloudSun />} onClick={() => setLayer("clouds")} isActive={layer === "clouds"} />
             <LayerButton icon={<FaTemperatureHigh />} onClick={() => setLayer("temperature")} isActive={layer === "temperature"} />

@@ -1,16 +1,184 @@
-# React + Vite
+# 🌦️ Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive weather application built with React and Vite. The app provides real-time weather conditions, hourly and weekly forecasts, and an interactive weather map powered by external weather APIs.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Home Page
 
-## React Compiler
+![Home Page](./src/assets/screenshots/home-page.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Weather Map
 
-## Expanding the ESLint configuration
+![Weather Map](./src/assets/screenshots/map-page.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Live Demo
+
+[Live Demo](https://weather-app-nine-coral-27ql9sn36d.vercel.app/)
+
+[Source Code](https://github.com/m-ibrahim-x/Weather-app)
+
+---
+
+## ✨ Features
+
+- 🌤️ Real-time weather conditions
+- 🌡️ Temperature, humidity, wind speed, and pressure details
+- ⏰ Hourly weather forecast
+- 📅 7-Day weather forecast
+- 🗺️ Interactive weather map
+- 🌍 Search weather by city
+- 📱 Fully responsive design
+- ⚠️ API error handling page
+- 🚫 Custom 404 Not Found page
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+- React.js
+- Vite
+- Tailwind CSS
+- React Router DOM
+- React Hooks
+- Custom Hooks
+
+### APIs
+
+- OpenWeatherMap API
+- Open-Meteo API
+
+### Libraries
+
+- Axios
+- React Leaflet
+- React Icons
+- Lucide React
+
+---
+
+## 📂 Project Structure
+
+```bash
+src
+├── assets
+│   ├── icons
+│   ├── images
+│   └── illustrations
+│
+├── components
+│   ├── layout
+│   ├── map
+│   ├── ui
+│   └── weather
+│
+├── hooks
+│   └── useWeather.js
+│
+├── pages
+│   ├── Home.jsx
+│   ├── Map.jsx
+│   └── error
+│
+├── services
+│   └── WeatherApi.js
+│
+└── App.jsx
+```
+---
+
+## 🏗️ Architecture
+
+- WeatherApi.js → API requests
+- useWeather.js → Weather logic and state management
+- Home.jsx → UI rendering
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/m-ibrahim-x/Weather-app.git
+```
+
+Move into the project folder:
+
+```bash
+cd weather-app
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_WEATHER_API_KEY=your_openweathermap_api_key
+```
+
+---
+
+## 📦 Build For Production
+
+```bash
+npm run build
+```
+
+Preview production build:
+
+```bash
+npm run preview
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### API Errors
+
+- Make sure your API key is valid.
+- Verify that the `.env` file exists.
+- Restart the development server after updating environment variables.
+
+### Map Issues
+
+- Ensure internet connectivity.
+- Verify that weather layers are enabled correctly.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome.
+
+Feel free to fork this repository and submit a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+Developed by Mohamed Ibrahim using React, Vite, Tailwind CSS, and OpenWeatherMap APIs.

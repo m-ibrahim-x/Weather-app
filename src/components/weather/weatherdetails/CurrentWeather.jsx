@@ -7,164 +7,168 @@ import AirQuality from "../../../assets/icons/AirQuality.png";
 
 const CurrentWeather = ({ weatherData }) => {
     return (
-        <section className=" px-4 sm:px-6 md:px-8 lg:px-10 py-4">
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-                {/* First Box */}
-                <div className="flex rounded-lg border border-white/10 bg-black/20 backdrop-blur-md md:block">
-                    {/* First Card */}
-                    <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center md:flex-row md:text-left">
-                        <img
-                            src={Humidity}
-                            alt="Humidity"
-                            className="h-7 w-7 object-contain"
-                        />
-                        <div>
-                            <h3 className="text-xs font-medium text-white/60">
-                                Humidity
-                            </h3>
-                            <p className="mt-1 text-lg font-bold text-white">
-                                {weatherData?.main?.humidity ? `${weatherData.main.humidity}%` : "60%"}
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Divider */}
-                    <div className="w-[1px] bg-white/10 md:hidden"></div>
-
-                    {/* Second Card */}
-                    <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center md:hidden">
-                        <img
-                            src={WindSpeed}
-                            alt="Wind Speed"
-                            className="h-7 w-7 object-contain"
-                        />
-                        <div>
-                            <h3 className="text-xs font-medium text-white/60">
-                                Wind Speed
-                            </h3>
-                            <p className="mt-1 text-lg font-bold text-white">
-                                {weatherData?.wind?.speed ? `${weatherData.wind.speed} km/h` : "18 km/h"}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Wind Card For md+ */}
-                <div className="hidden rounded-lg border border-white/10 bg-black/20 p-4 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-3">
-                    <img
-                        src={WindSpeed}
-                        alt="Wind Speed"
-                        className="h-7 w-7 object-contain"
-                    />
-                    <div>
-                        <h3 className="text-xs font-medium text-white/60">
-                            Wind Speed
-                        </h3>
-                        <p className="mt-1 text-lg font-bold text-white">
-                            {
-                                weatherData?.wind?.speed
-                                ? `${Math.round(weatherData.wind.speed * 3.6)} km/h`
-                                : "18 km/h"
-                            }
-                        </p>
-                    </div>
-                </div>
-
-                {/* Second Box */}
-                <div className="flex rounded-lg border border-white/10 bg-black/20 backdrop-blur-md md:block">
-                    {/* Third Card */}
-                    <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center md:flex-row md:text-left">
-                        <img
-                            src={Pressure}
-                            alt="Pressure"
-                            className="h-7 w-7 object-contain"
-                        />
-                        <div>
-                            <h3 className="text-xs font-medium text-white/60">
-                                Pressure
-                            </h3>
-                            <p className="mt-1 text-lg font-bold text-white">
-                                {weatherData?.main?.pressure ? `${weatherData.main.pressure} hPa` : "1012 hPa"}
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Divider */}
-                    <div className="w-[1px] bg-white/10 md:hidden"></div>
-
-                    {/* Fourth Card */}
-                    <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center md:hidden">
-                        <img
-                            src={Visibility}
-                            alt="Visibility"
-                            className="h-7 w-7 object-contain"
-                        />
-                        <div>
-                            <h3 className="text-xs font-medium text-white/60">
-                                Visibility
-                            </h3>
-                            <p className="mt-1 text-lg font-bold text-white">
-                                {
-                                    weatherData?.visibility
-                                    ? `${Math.round(weatherData.visibility / 1000)} km`
-                                    : "10 km"
-                                }
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Visibility Card For md+ */}
-                <div className="hidden rounded-lg border border-white/10 bg-black/20 p-4 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-3">
-                    <img
-                        src={Visibility}
-                        alt="Visibility"
-                        className="h-7 w-7 object-contain"
-                    />
-                    <div>
-                        <h3 className="text-xs font-medium text-white/60">
-                            Visibility
-                        </h3>
-                        <p className="mt-1 text-lg font-bold text-white">
-                            {weatherData?.visibility ? `${weatherData.visibility / 1000} km` : "10 km"}
-                        </p>
-                    </div>
-                </div>
-
-                {/* Fifth Card */}
-                <div className="hidden rounded-lg border border-white/10 bg-black/20 p-4 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-3">
-                    <img
-                        src={UV}
-                        alt="UV Index"
-                        className="h-7 w-7 object-contain"
-                    />
-                    <div>
-                        <h3 className="text-xs font-medium text-white/60">
-                            UV Index
-                        </h3>
-                        <p className="mt-1 text-lg font-bold text-white">
-                            Moderate
-                        </p>
-                    </div>
-                </div>
-
-                {/* Sixth Card */}
-                <div className="hidden rounded-lg border border-white/10 bg-black/20 p-4 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-3">
-                    <img
-                        src={AirQuality}
-                        alt="Air Quality"
-                        className="h-7 w-7 object-contain"
-                    />
-                    <div>
-                        <h3 className="text-xs font-medium text-white/60">
-                            Air Quality
-                        </h3>
-                        <p className="mt-1 text-lg font-bold text-white">
-                            Good
-                        </p>
-                    </div>
+        <section className="px-4 py-4 sm:px-6 md:px-8 lg:px-10">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+            {/* First Box */}
+            <div className="flex rounded-2xl border border-white/10 bg-black/20 backdrop-blur-md md:block">
+            {/* First Card */}
+            <div className="flex flex-1 flex-col items-center justify-center gap-2 p-5 text-center md:flex-row md:text-left">
+                <img
+                src={Humidity}
+                alt="Humidity"
+                className="h-8 w-8 object-contain"
+                />
+                <div>
+                <h3 className="text-xs font-medium text-white/60">
+                    Humidity
+                </h3>
+                <p className="mt-1 text-lg font-bold text-white">
+                    {weatherData?.main?.humidity
+                    ? `${weatherData.main.humidity}%`
+                    : "60%"}
+                </p>
                 </div>
             </div>
+
+            {/* Divider */}
+            <div className="w-[1px] bg-white/10 md:hidden"></div>
+
+            {/* Second Card */}
+            <div className="flex flex-1 flex-col items-center justify-center gap-2 p-5 text-center md:hidden">
+                <img
+                src={WindSpeed}
+                alt="Wind Speed"
+                className="h-8 w-8 object-contain"
+                />
+                <div>
+                <h3 className="text-xs font-medium text-white/60">
+                    Wind Speed
+                </h3>
+                <p className="mt-1 text-lg font-bold text-white">
+                    {weatherData?.wind?.speed
+                    ? `${Math.round(weatherData.wind.speed * 3.6)} km/h`
+                    : "18 km/h"}
+                </p>
+                </div>
+            </div>
+            </div>
+
+            {/* Wind Card For md+ */}
+            <div className="hidden rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-4">
+            <img
+                src={WindSpeed}
+                alt="Wind Speed"
+                className="h-8 w-8 object-contain"
+            />
+            <div>
+                <h3 className="text-xs font-medium text-white/60">
+                Wind Speed
+                </h3>
+                <p className="mt-1 text-lg font-bold text-white">
+                {weatherData?.wind?.speed
+                    ? `${Math.round(weatherData.wind.speed * 3.6)} km/h`
+                    : "18 km/h"}
+                </p>
+            </div>
+            </div>
+
+            {/* Second Box */}
+            <div className="flex rounded-2xl border border-white/10 bg-black/20 backdrop-blur-md md:block">
+            {/* Third Card */}
+            <div className="flex flex-1 flex-col items-center justify-center gap-2 p-5 text-center md:flex-row md:text-left">
+                <img
+                src={Pressure}
+                alt="Pressure"
+                className="h-8 w-8 object-contain"
+                />
+                <div>
+                <h3 className="text-xs font-medium text-white/60">
+                    Pressure
+                </h3>
+                <p className="mt-1 text-lg font-bold text-white">
+                    {weatherData?.main?.pressure
+                    ? `${weatherData.main.pressure} hPa`
+                    : "1012 hPa"}
+                </p>
+                </div>
+            </div>
+
+            {/* Divider */}
+            <div className="w-[1px] bg-white/10 md:hidden"></div>
+
+            {/* Fourth Card */}
+            <div className="flex flex-1 flex-col items-center justify-center gap-2 p-5 text-center md:hidden">
+                <img
+                src={Visibility}
+                alt="Visibility"
+                className="h-8 w-8 object-contain"
+                />
+                <div>
+                <h3 className="text-xs font-medium text-white/60">
+                    Visibility
+                </h3>
+                <p className="mt-1 text-lg font-bold text-white">
+                    {weatherData?.visibility
+                    ? `${Math.round(weatherData.visibility / 1000)} km`
+                    : "10 km"}
+                </p>
+                </div>
+            </div>
+            </div>
+
+            {/* Visibility Card For md+ */}
+            <div className="hidden rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-4">
+            <img
+                src={Visibility}
+                alt="Visibility"
+                className="h-8 w-8 object-contain"
+            />
+            <div>
+                <h3 className="text-xs font-medium text-white/60">
+                Visibility
+                </h3>
+                <p className="mt-1 text-lg font-bold text-white">
+                {weatherData?.visibility
+                    ? `${Math.round(weatherData.visibility / 1000)} km`
+                    : "10 km"}
+                </p>
+            </div>
+            </div>
+
+            {/* Fifth Card */}
+            <div className="hidden rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-4">
+            <img
+                src={UV}
+                alt="UV Index"
+                className="h-8 w-8 object-contain"
+            />
+            <div>
+                <h3 className="text-xs font-medium text-white/60">
+                UV Index
+                </h3>
+                <p className="mt-1 text-lg font-bold text-white">
+                Moderate
+                </p>
+            </div>
+            </div>
+
+            {/* Sixth Card */}
+            <div className="hidden rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-md md:flex md:flex-row md:items-center md:justify-center md:gap-4">
+            <img
+                src={AirQuality}
+                alt="Air Quality"
+                className="h-8 w-8 object-contain"
+            />
+            <div>
+                <h3 className="text-xs font-medium text-white/60">
+                Air Quality
+                </h3>
+                <p className="mt-1 text-lg font-bold text-white">
+                Good
+                </p>
+            </div>
+            </div>
+        </div>
         </section>
     );
 };
